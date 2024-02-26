@@ -15,7 +15,7 @@ examples.Add(new Linq());
 
 foreach (var example in examples)
 {
-    example.RunExampleAsync();
+    await example.RunExampleAsync();
 }
 
 

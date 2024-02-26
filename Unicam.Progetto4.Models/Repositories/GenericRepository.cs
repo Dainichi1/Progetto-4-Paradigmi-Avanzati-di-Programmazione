@@ -31,7 +31,7 @@ namespace Unicam.Progetto4.Models.Repositories
 
         }
 
-        public async Task Modifica(T entity)
+        public async Task ModificaAsync(T entity)
         {
             _ctx.Entry(entity).State = EntityState.Modified;
             await _ctx.SaveChangesAsync();

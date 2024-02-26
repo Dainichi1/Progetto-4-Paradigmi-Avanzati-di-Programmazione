@@ -23,8 +23,8 @@ namespace Unicam.Progetto4.Test.Orm
 
             var risorsa = await risorsaRepo.OttieniAsync(2);
             risorsa.Nome = "CLIO - MODIFICA";
-            risorsaRepo.Modifica(risorsa);
-            risorsaRepo.SaveAsync();
+            await risorsaRepo.ModificaAsync(risorsa);
+            await risorsaRepo.SaveAsync();
 
             var nuovaRisorsa = new Risorsa
             {
