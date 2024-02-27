@@ -10,14 +10,24 @@ namespace Unicam.Progetto4.Models.Context
 {
     public class MyDbContext : DbContext
     {
+
+        public MyDbContext() : base()
+        {
+
+        }
+
+        public MyDbContext(DbContextOptions<MyDbContext> config) : base(config)
+        {
+
+        }
+
         public DbSet<Risorsa> Risorse { get; set; }
         public DbSet<RisorsaTipologia> RisorseTipologia { get; set; }
         public DbSet<Utente> Utenti { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.
-                UseSqlServer("data source=localhost;Initial catalog=Progetto;User Id=progetto;Password=progetto;TrustServerCertificate=True");
+            
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)

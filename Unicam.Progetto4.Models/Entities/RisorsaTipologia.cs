@@ -9,8 +9,8 @@ namespace Unicam.Progetto4.Models.Entities
     public class RisorsaTipologia
     {
         public int IdRisorsaTipologia { get; set; }
-        public string NomeTipologia { get; set; } // es. "Auto","Sala Riunione"
+        public string NomeTipologia { get; set; } = string.Empty;// es. "Auto","Sala Riunione"
 
-        public ICollection<Risorsa> Risorse { get; set; }
+        public ICollection<Risorsa> Risorse { get; set; } = null!; 
     }
 }

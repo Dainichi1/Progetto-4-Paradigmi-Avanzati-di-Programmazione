@@ -18,7 +18,7 @@ namespace Unicam.Progetto4.Models.Configurations
             builder.Property(p => p.Nome)
                 .HasMaxLength(100);
 
-            builder.HasOne(r => r.RisorsaTipologia) // Proprietà di navigazione in Risorsa
+            builder.HasOne(r => r.RisorsaTipologiaACuiAppartiene) // Proprietà di navigazione in Risorsa
                 .WithMany(rt => rt.Risorse) // Proprietà di navigazione inversa in RisorsaTipologia
                 .HasForeignKey(r => r.IdRisorsaTipologia); // Chiave esterna in Risorsa
         }
