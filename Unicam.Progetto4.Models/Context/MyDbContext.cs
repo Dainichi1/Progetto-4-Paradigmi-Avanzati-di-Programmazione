@@ -24,10 +24,12 @@ namespace Unicam.Progetto4.Models.Context
         public DbSet<Risorsa> Risorse { get; set; }
         public DbSet<RisorsaTipologia> RisorseTipologia { get; set; }
         public DbSet<Utente> Utenti { get; set; }
+        public DbSet<Prenotazione> Prenotazioni { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            
+            optionsBuilder.
+                UseSqlServer("data source=localhost;Initial catalog=Progetto;User Id=progetto;Password=progetto;TrustServerCertificate=True");
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)

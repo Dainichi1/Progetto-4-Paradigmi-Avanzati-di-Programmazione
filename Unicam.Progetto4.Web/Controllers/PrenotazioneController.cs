@@ -6,19 +6,19 @@ using Unicam.Progetto4.Application.Models.Requests;
 using Unicam.Progetto4.Application.Models.Responses;
 using Unicam.Progetto4.Models.Entities;
 
+
 namespace Unicam.Progetto4.Web.Controllers
 {
-    
     [ApiController]
     [Route("api/v1/[controller]")]
     [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
-    public class RisorsaController : ControllerBase
+    public class PrenotazioneController : ControllerBase
     {
-        private readonly IRisorsaService _risorsaService;
+        private readonly IPrenotazioneService _prenotazioneService;
 
-        public RisorsaController(IRisorsaService risorsaService)
+        public PrenotazioneController(IPrenotazioneService prenotazioneService)
         {
-            _risorsaService = risorsaService;
+            _prenotazioneService = prenotazioneService;
         }
 
 
@@ -27,14 +27,14 @@ namespace Unicam.Progetto4.Web.Controllers
         [HttpGet]
         [Route("list")]
 
-        public IEnumerable<Risorsa> GetRisorsa()
+        public IEnumerable<Prenotazione> GetPrenotazione()
         {
             return null;
         }
 
         [HttpGet]
         [Route("get/{id:int}")]
-        public Risorsa GetRisorsa(int id)
+        public Prenotazione GetPrenotazione(int id)
         {
             // return utenti.Where(w => w.IdUtente == id).First();
             return null;
@@ -42,15 +42,15 @@ namespace Unicam.Progetto4.Web.Controllers
 
         [HttpPost]
         [Route("Creazione con validazione")]
-        public IActionResult CreateRisorsa(CreateRisorsaRequest request)
+        public IActionResult CreatePrenotazione(CreatePrenotazioneRequest request)
         {
-            var risorsa = request.ToEntity();
-            _risorsaService.AddRisorsa(risorsa);
+            var prenotazione = request.ToEntity();
+            _prenotazioneService.AddPrenotazione(prenotazione);
 
-            var response = new CreateRisorsaResponse();
-            response.Risorsa = new Application.Models.Dto.RisorsaDto(risorsa);
-            
-            return Ok(response);
+            var response = new CreatePrenotazioneResponse();
+            response.Prenotazione = new Application.Models.Dtos.PrenotazioneDto(prenotazione);
+
+            return Ok(prenotazione);
         }
     }
 }
