@@ -1,6 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Unicam.Progetto4.Application.Abstractions.Services;
+using Unicam.Progetto4.Application.Factories;
 using Unicam.Progetto4.Application.Models.Requests;
+using Unicam.Progetto4.Application.Models.Responses;
 
 namespace Unicam.Progetto4.Web.Controllers
 {
@@ -20,9 +22,15 @@ namespace Unicam.Progetto4.Web.Controllers
         [Route("create")] //serve per creare un token
         public IActionResult Create(CreateTokenRequest request)
         {
+            
             // STEP 0: validazione della richiesta
             string token = _tokenService.CreateToken(request);
-            return Ok(token);
+            return Ok(
+                ResponseFactory.WithSuccess(
+                    new CreateTokenResponse(token)
+                    )
+                );
+                
         }
     }
 }

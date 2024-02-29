@@ -14,7 +14,23 @@ namespace Unicam.Progetto4.Models.Repositories
         public RisorsaRepository(MyDbContext ctx) : base(ctx)
         {
         }
-        
+
+        public List<Risorsa> GetRisorse(int from, int num, string? name, out int totalNum)
+        {
+            var query = _ctx.Risorse.AsQueryable();
+            if (!string.IsNullOrEmpty(name))
+            {
+                query = query.Where(w => w.Nome.ToLower().Contains(name.ToLower()));
+            }
+
+            totalNum = query.Count();
+            return
+                query
+                .OrderBy(o => o.Nome)
+                .Skip(from)
+                .Take(num)
+                .ToList();
+        }
 
     }
 }

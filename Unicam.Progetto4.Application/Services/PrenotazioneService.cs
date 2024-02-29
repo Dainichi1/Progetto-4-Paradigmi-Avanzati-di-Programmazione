@@ -18,9 +18,14 @@ namespace Unicam.Progetto4.Application.Services
             _prenotazioneRepository.SaveAsync().Wait();
         }
 
-        public List<Prenotazione> GetPrenotazione()
+        public List<Prenotazione> GetPrenotazioni()
         {
             return new List<Prenotazione>();
+        }
+
+        public List<Prenotazione> GetPrenotazioni(int from, int num, string? name, out int totalNum)
+        {
+            return _prenotazioneRepository.GetPrenotazioni(from, num, name, out totalNum);
         }
     }
 }

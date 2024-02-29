@@ -1,7 +1,9 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Unicam.Progetto4.Application.Abstractions.Services;
+using Unicam.Progetto4.Application.Factories;
 using Unicam.Progetto4.Application.Models.Requests;
 using Unicam.Progetto4.Application.Models.Responses;
+using Unicam.Progetto4.Application.Services;
 using Unicam.Progetto4.Models.Entities;
 
 namespace Unicam.Progetto4.Web.Controllers
@@ -20,12 +22,25 @@ namespace Unicam.Progetto4.Web.Controllers
 
         
 
-        [HttpGet] 
-        [Route("list")] 
+        [HttpPost] 
+        [Route("list")]
 
-        public IEnumerable<Utente> GetUtenti()
+        public IActionResult GetUtenti(GetUtenteRequest request)
         {
-            return null;
+            int totalNum = 0;
+            var utenti = _utenteService.GetUtenti(request.PageNumber * request.PageSize, request.PageSize, request.Name, out totalNum);
+
+
+            var response = new GetUtentiResponse();
+            var pageFounded = (totalNum / (decimal)request.PageSize);
+            response.NumeroPagine = (int)Math.Ceiling(pageFounded);
+            response.Utenti = utenti.Select(s =>
+            new Application.Models.Dtos.UtenteDto(s)).ToList();
+
+            return Ok(ResponseFactory
+                .WithSuccess(response)
+                );
+
         }
 
         [HttpGet]
@@ -44,9 +59,12 @@ namespace Unicam.Progetto4.Web.Controllers
             _utenteService.AddUtente(utente);
 
             var response = new CreateUtenteResponse();
-            response.Utente = new Application.Models.Dto.UtenteDto(utente);
+            response.Utente = new Application.Models.Dtos.UtenteDto(utente);
 
-            return Ok(response);
+            return Ok(
+                ResponseFactory
+                .WithSuccess(response)
+                );
         }
     }
 }

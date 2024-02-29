@@ -26,5 +26,10 @@ namespace Unicam.Progetto4.Application.Services
         {
             return new List<Utente>();
         }
+
+        public List<Utente> GetUtenti(int from, int num, string? name, out int totalNum)
+        {
+            return _utenteRepository.GetUtenti(from, num, name, out totalNum);
+        }
     }
 }

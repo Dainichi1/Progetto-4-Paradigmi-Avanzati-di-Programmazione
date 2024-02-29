@@ -1,6 +1,6 @@
 ﻿using Unicam.Progetto4.Models.Entities;
 
-namespace Unicam.Progetto4.Application.Models.Dto
+namespace Unicam.Progetto4.Application.Models.Dtos
 {
     public class RisorsaDto
     {

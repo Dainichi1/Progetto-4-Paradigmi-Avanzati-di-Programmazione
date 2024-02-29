@@ -2,7 +2,7 @@
 
 namespace Unicam.Progetto4.Application.Models.Responses
 {
-    public class CreatePrenotazioneResponse
+    public class CreatePrenotazioneResponse 
     {
         public PrenotazioneDto Prenotazione { get; set; } = null!;
     }
