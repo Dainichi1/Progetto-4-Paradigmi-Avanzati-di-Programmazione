@@ -57,7 +57,7 @@ namespace Unicam.Progetto4.Application.Services
 
             var risorse = query
                 .OrderBy(r => r.Nome)
-                .Skip(from * num) // Ensure correct pagination by multiplying page number with page size
+                .Skip(from * num) // Assicura che la paginazione sia corretta moltiplicando il numero di pagina per la dimensione della pagina.
                 .Take(num)
                 .ToList();
 

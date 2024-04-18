@@ -23,7 +23,7 @@ namespace Unicam.Progetto4.Web.Controllers
         public IActionResult Create(CreateTokenRequest request)
         {
             
-            // STEP 0: validazione della richiesta
+            // validazione della richiesta
             string token = _tokenService.CreateToken(request);
             return Ok(
                 ResponseFactory.WithSuccess(

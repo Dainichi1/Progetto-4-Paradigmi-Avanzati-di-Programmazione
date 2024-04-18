@@ -96,10 +96,10 @@ namespace Unicam.Progetto4.Web.Controllers
 
             var totalPages = (int)Math.Ceiling((double)totalItems / request.PageSize);
 
-            // Assicurati che la tua funzione GetDisponibilita ritorni una lista di RisorsaDto
+            
             var response = new
             {
-                Risorse = disponibilita, // Se già RisorsaDto, non è necessaria ulteriore trasformazione
+                Risorse = disponibilita, 
                 TotalPages = totalPages,
                 TotalItems = totalItems
             };

@@ -15,7 +15,7 @@ namespace Unicam.Progetto4.Test.Orm
         {
             var ctx = new MyDbContext();
 
-            // Recupera le risorse in modo asincrono e poi esegui il raggruppamento
+            // Recupera le risorse in modo asincrono e poi esegue il raggruppamento
             var risorse = await ctx.Risorse.ToListAsync();
             var queryResult = risorse.GroupBy(g => g.IdRisorsaTipologia);
 

@@ -34,33 +34,33 @@ namespace Unicam.Progetto4.Test.Orm
         {
             var prenotazioni = new List<Prenotazione>
     {
-        // Aggiungi esempi di prenotazioni qui
+        
             new Prenotazione
             {
                 DataInizio = new DateTime(2023, 1, 1) ,
                 DataFine = new DateTime(2023, 1, 3),
-                IdRisorsa = 1 // Assicurati che l'ID della risorsa esista nel tuo DB
+                IdRisorsa = 1 // l'ID della risorsa deve esistere nel DB
             },
 
             new Prenotazione
             {
                 DataInizio = new DateTime(2023, 1, 4),
                 DataFine = new DateTime(2023, 1, 6),
-                IdRisorsa = 2 // Assicurati che l'ID della risorsa esista nel tuo DB
+                IdRisorsa = 2 // l'ID della risorsa deve esistere nel DB
             },
 
             new Prenotazione
             {
                 DataInizio = new DateTime(2023, 1, 7),
                 DataFine = new DateTime(2023, 1, 8),
-                IdRisorsa = 3 // Assicurati che l'ID della risorsa esista nel tuo DB
+                IdRisorsa = 3 // l'ID della risorsa deve esistere nel DB
             },
 
             new Prenotazione
             {
                 DataInizio = new DateTime(2023, 1, 7),
                 DataFine = new DateTime(2023, 1, 8),
-                IdRisorsa = 4 // Assicurati che l'ID della risorsa esista nel tuo DB
+                IdRisorsa = 4 // l'ID della risorsa deve esistere nel DB
             },
 
     };
@@ -188,7 +188,7 @@ namespace Unicam.Progetto4.Test.Orm
                 var esisteUtente = ctx.Utenti
                     .Any(u => u.Email == nuovoUtente.Email);
 
-                // Se non esiste, aggiungilo
+                // Se non esiste lo aggiunge
                 if (!esisteUtente)
                 {
                     ctx.Utenti.Add(nuovoUtente);
@@ -205,7 +205,7 @@ namespace Unicam.Progetto4.Test.Orm
                 .Where(u => u.IdUtente >= 34 && u.IdUtente <= 35)
                 .ToList();
 
-            // Rimuovi gli utenti selezionati dal contesto
+            // Rimuove gli utenti selezionati dal contesto
             foreach (var utente in utentiDaCancellare)
             {
                 ctx.Utenti.Remove(utente);
@@ -258,7 +258,7 @@ namespace Unicam.Progetto4.Test.Orm
                     .AsNoTracking() // Aggiunto per evitare il tracciamento delle entità in questa query
                     .FirstOrDefault(rt => rt.IdRisorsaTipologia == tipologia.IdRisorsaTipologia);
 
-                // Se non esiste, aggiungila
+                // Se non esiste la aggiunge
                 if (esistente == null)
                 {
                     ctx.RisorseTipologia.Add(tipologia);
@@ -365,7 +365,7 @@ namespace Unicam.Progetto4.Test.Orm
                 var esisteRisorsa = ctx.Risorse
                     .Any(r => r.IdRisorsa == nuovaRisorsa.IdRisorsa);
 
-                // Se non esiste, aggiungila
+                // Se non esiste la aggiunge
                 if (!esisteRisorsa)
                 {
                     ctx.Risorse.Add(nuovaRisorsa);

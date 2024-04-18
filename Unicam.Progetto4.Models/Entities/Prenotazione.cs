@@ -6,6 +6,8 @@ using System.Threading.Tasks;
 
 namespace Unicam.Progetto4.Models.Entities
 {
+    // La classe "Prenotazione" devo mapparla sulla tabella "Prenotazioni" del db: vedi cartella "Configurations"
+
     public class Prenotazione
     {
         public int IdPrenotazione { get; set; }
