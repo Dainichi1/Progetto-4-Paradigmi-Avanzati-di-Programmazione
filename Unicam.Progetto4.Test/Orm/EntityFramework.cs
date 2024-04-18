@@ -37,7 +37,7 @@ namespace Unicam.Progetto4.Test.Orm
         // Aggiungi esempi di prenotazioni qui
             new Prenotazione
             {
-                DataInizio = new DateTime(2023, 1, 1),
+                DataInizio = new DateTime(2023, 1, 1) ,
                 DataFine = new DateTime(2023, 1, 3),
                 IdRisorsa = 1 // Assicurati che l'ID della risorsa esista nel tuo DB
             },
