@@ -49,7 +49,7 @@ namespace Unicam.Progetto4.Web.Controllers
         public Prenotazione GetPrenotazione(int id)
         {
             // return utenti.Where(w => w.IdUtente == id).First();
-            return null;
+            return null ;
         }
 
         [HttpPost]
