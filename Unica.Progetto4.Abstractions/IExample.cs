@@ -11,6 +11,6 @@ namespace Unica.Progetto4.Abstractions
 {
     public interface IExample
     {
-        Task RunExampleAsync();
+        Task RunExampleAsync() ;
     }
 }
