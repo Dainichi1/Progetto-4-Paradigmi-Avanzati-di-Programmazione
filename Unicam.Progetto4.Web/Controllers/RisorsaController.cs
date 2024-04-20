@@ -52,13 +52,7 @@ namespace Unicam.Progetto4.Web.Controllers
 
         }
 
-        [HttpGet]
-        [Route("get/{id:int}")]
-        public Risorsa GetRisorsa(int id)
-        {
-            // return utenti.Where(w => w.IdUtente == id).First();
-            return null;
-        }
+
 
         [HttpPost]
         [Route("Creazione con validazione")]
