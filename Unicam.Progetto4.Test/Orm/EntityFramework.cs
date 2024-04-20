@@ -17,7 +17,7 @@ namespace Unicam.Progetto4.Test.Orm
         public async Task RunExampleAsync()
         {
 
-            var ctx = new MyDbContext();
+            var ctx = new MyDbContext(); // inizializzo il contesto di entity-framework
 
 
 

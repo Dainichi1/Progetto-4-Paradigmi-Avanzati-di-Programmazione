@@ -19,20 +19,19 @@ namespace Unicam.Progetto4.Application.Middlewares
             _next = next;
         }
 
+        // Implemento il codice effettivo del middleware
         public async Task Invoke(HttpContext context
             , IUtenteService utenteService
             , IConfiguration configuration
            
             )
         {
-            // Console.WriteLine(emailOption.Value.Host);
+            
             context.RequestServices.GetRequiredService<IUtenteService>();
-            // Implemento il codice effettivo del middleware
 
             // per andare al middleware successivo devo chiamare _next.Ivoke
 
             await _next.Invoke(context);
-            // await context.Response.WriteAsync("Blocco la chiamata");
         }
 
     }

@@ -16,6 +16,7 @@ namespace Unicam.Progetto4.Models.Entities
         public DateTime DataFine { get; set; }
 
         // Proprietà di navigazione
+        // collego la prenotazione con la risorsa
         public Risorsa Risorsa { get; set; } 
     }
 }

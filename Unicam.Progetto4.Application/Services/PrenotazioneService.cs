@@ -4,6 +4,7 @@ using Unicam.Progetto4.Models.Repositories;
 
 namespace Unicam.Progetto4.Application.Services
 {
+    // qui mappo le operazioni che devono essere effettuate sulle prenotazioni (creazione, modifica, elenco ...)
     public class PrenotazioneService : IPrenotazioneService
     {
         private readonly PrenotazioneRepository _prenotazioneRepository;
