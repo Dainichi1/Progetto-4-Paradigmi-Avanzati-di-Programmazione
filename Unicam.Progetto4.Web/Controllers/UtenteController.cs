@@ -14,6 +14,7 @@ namespace Unicam.Progetto4.Web.Controllers
     {
         private readonly IUtenteService _utenteService;
 
+
         public UtenteController (IUtenteService utenteService)
         {
             _utenteService = utenteService;
@@ -43,13 +44,7 @@ namespace Unicam.Progetto4.Web.Controllers
 
         }
 
-        [HttpGet]
-        [Route("get/{id:int}")] 
-        public Utente GetUtente(int id)
-        {
-            // return utenti.Where(w => w.IdUtente == id).First();
-            return null;
-        }
+       
 
         [HttpPost]
         [Route("Creazione senza validazione")] 
