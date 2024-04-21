@@ -14,6 +14,7 @@ namespace Unicam.Progetto4.Application.Validators
             _dbContext = dbContext;
 
             RuleFor(x => x.Nome)
+                .NotNull().WithMessage("Il nome della risorsa è obbligatorio.")
                 .NotEmpty().WithMessage("Il nome della risorsa è obbligatorio.");
 
             RuleFor(x => x.IdRisorsaTipologia)

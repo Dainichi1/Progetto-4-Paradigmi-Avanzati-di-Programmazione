@@ -28,5 +28,7 @@ namespace Unicam.Progetto4.Application.Services
         {
             return _prenotazioneRepository.GetPrenotazioni(from, num, name, out totalNum);
         }
+
+        
     }
 }

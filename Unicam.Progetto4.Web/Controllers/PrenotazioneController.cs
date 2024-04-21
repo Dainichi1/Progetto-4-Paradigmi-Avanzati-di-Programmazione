@@ -56,6 +56,7 @@ namespace Unicam.Progetto4.Web.Controllers
         [Route("Creazione con validazione")]
         public IActionResult CreatePrenotazione(CreatePrenotazioneRequest request)
         {
+            
             var prenotazione = request.ToEntity();
             _prenotazioneService.AddPrenotazione(prenotazione);
 

@@ -17,6 +17,6 @@ namespace Unicam.Progetto4.Models.Entities
 
         // Proprietà di navigazione
         // collego la prenotazione con la risorsa
-        public Risorsa Risorsa { get; set; } 
+        public Risorsa Risorsa { get; set; } = null!;
     }
 }
