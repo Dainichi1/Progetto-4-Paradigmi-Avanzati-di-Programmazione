@@ -4,7 +4,9 @@ namespace Unicam.Progetto4.Application.Models.Dtos
 {
     public class RisorsaDto
     {
-
+        public int Id { get; set; }
+        public string Nome { get; set; } = string.Empty;
+        public int IdRisorsaTipologia { get; set; }
         public RisorsaDto() { }
 
         public RisorsaDto(Risorsa risorsa) 
@@ -16,8 +18,6 @@ namespace Unicam.Progetto4.Application.Models.Dtos
         }
 
 
-        public int Id { get; set; } 
-        public string Nome { get; set; } = string.Empty;
-        public int IdRisorsaTipologia { get; set; }
+        
     }
 }

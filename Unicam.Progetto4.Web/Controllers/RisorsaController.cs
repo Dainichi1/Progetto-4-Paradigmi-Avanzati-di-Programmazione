@@ -29,16 +29,41 @@ namespace Unicam.Progetto4.Web.Controllers
         }
 
 
+        [HttpGet]
+        [Route("get/{id:int}")] 
+        public IActionResult GetRisorsa(int id)
+        {
+            
+            var risorsa =  _risorsaService.GetRisorsaById(id);
 
+           
+            if (risorsa == null)
+            {
+                return NotFound("Risorsa non trovata con l'ID fornito.");
+            }
+
+            
+            var risorsaDto = new RisorsaDto(risorsa);
+            return Ok(risorsaDto);
+        }
 
         [HttpPost]
-        [Route("list")]
+        [Route("Lista Risorse")]
 
         public IActionResult GetRisorse(GetRisorsaRequest request)
         {
+            if (request.PageSize <= 0)
+            {
+                return BadRequest("Il campo Page Size non può essere 0");
+            }
+
+
             int totalNum = 0;
             var risorse = _risorsaService.GetRisorse(request.PageNumber * request.PageSize, request.PageSize, request.Name, out totalNum);
-
+            if (!risorse.Any())
+            {
+                return Ok(new { Message = "Nessuna risorsa trovata" });
+            }
 
             var response = new GetRisorseResponse();
             var pageFounded = (totalNum / (decimal)request.PageSize);
@@ -79,13 +104,18 @@ namespace Unicam.Progetto4.Web.Controllers
         [Route("Ricerca disponibilità con validazione")]
         public IActionResult GetDisponibilita(GetDisponibilitaRequest request)
         {
+            if (request.PageSize <= 0)
+            {
+                return BadRequest("Il campo Page Size non può essere 0");
+            }
+
             int totalItems;
             var disponibilita = _risorsaService.GetDisponibilita(
                 (request.PageNumber - 1) * request.PageSize,
                 request.PageSize,
                 request.DataInizio,
                 request.DataFine,
-                request.CodiceRisorsa,
+                request.IdRisorsa,
                 out totalItems);
 
             var totalPages = (int)Math.Ceiling((double)totalItems / request.PageSize);

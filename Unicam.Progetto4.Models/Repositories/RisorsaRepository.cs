@@ -15,6 +15,10 @@ namespace Unicam.Progetto4.Models.Repositories
         {
         }
 
+        public Risorsa GetById(int id)
+        {
+            return _ctx.Risorse.FirstOrDefault(u => u.IdRisorsa == id);
+        }
         public List<Risorsa> GetRisorse(int from, int num, string? name, out int totalNum)
         {
             var query = _ctx.Risorse.AsQueryable();

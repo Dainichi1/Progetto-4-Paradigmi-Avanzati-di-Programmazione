@@ -7,6 +7,7 @@ namespace Unicam.Progetto4.Application.Abstractions.Services
         List<Utente> GetUtenti();
         List<Utente> GetUtenti(int from, int num, string? name, out int totalNum);
         void AddUtente(Utente utente);
+        Utente GetUtenteById(int id);
 
     }
 }

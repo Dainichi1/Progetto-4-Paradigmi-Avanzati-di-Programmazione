@@ -31,5 +31,10 @@ namespace Unicam.Progetto4.Application.Services
         {
             return _utenteRepository.GetUtenti(from, num, name, out totalNum);
         }
+
+        public Utente GetUtenteById(int id)
+        {
+            return _utenteRepository.GetById(id); 
+        }
     }
 }

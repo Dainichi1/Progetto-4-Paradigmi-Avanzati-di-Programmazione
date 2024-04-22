@@ -19,7 +19,7 @@ namespace Unicam.Progetto4.Web.Controllers
         }
 
         [HttpPost]
-        [Route("create")] //serve per creare un token
+        [Route("Creazione di un token")] //serve per creare un token
         public IActionResult Create(CreateTokenRequest request)
         {
             

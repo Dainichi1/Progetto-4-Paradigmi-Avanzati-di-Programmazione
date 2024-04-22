@@ -15,13 +15,16 @@ namespace Unicam.Progetto4.Application.Services
     {
         private readonly RisorsaRepository _risorsaRepository;
         private readonly MyDbContext _dbContext;
-
+        
         public RisorsaService(RisorsaRepository risorsaRepository, MyDbContext dbContext)
         {
             _risorsaRepository = risorsaRepository;
             _dbContext = dbContext;
         }
-
+        public Risorsa GetRisorsaById(int id)
+        {
+            return _risorsaRepository.GetById(id);
+        }
         public void AddRisorsa(Risorsa risorsa)
         {
             _risorsaRepository.AggiungiAsync(risorsa).Wait();

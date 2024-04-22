@@ -14,13 +14,17 @@ namespace Unicam.Progetto4.Models.Repositories
         public UtenteRepository(MyDbContext ctx) : base(ctx)
         {
         }
-
-        public List<Utente> GetUtenti(int from, int num, string? name, out int totalNum)
+        public Utente GetById(int id)
+        {
+            return _ctx.Utenti.FirstOrDefault(u => u.IdUtente == id);
+        }
+        public List<Utente> GetUtenti(int from, int num, string? searchTerm, out int totalNum)
         {
             var query = _ctx.Utenti.AsQueryable();
-            if (!string.IsNullOrEmpty(name))
+            if (!string.IsNullOrEmpty(searchTerm))
             {
-                query = query.Where(w => w.Cognome.ToLower().Contains(name.ToLower()));
+                searchTerm = searchTerm.ToLower();
+                query = query.Where(u => u.Nome.ToLower().Contains(searchTerm) || u.Cognome.ToLower().Contains(searchTerm));
             }
 
             totalNum = query.Count();

@@ -11,7 +11,7 @@ namespace Unicam.Progetto4.Application.Abstractions.Services
         List<Risorsa> GetRisorse(int from, int num, string? name, out int totalNum);
         void AddRisorsa(Risorsa risorsa);
 
-        
+        Risorsa GetRisorsaById(int id);
 
         List<RisorsaDto> GetDisponibilita(int from, int num, DateTime dataInizio, DateTime dataFine, int? codiceRisorsa, out int totalItems);
     }

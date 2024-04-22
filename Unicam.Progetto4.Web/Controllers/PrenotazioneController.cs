@@ -27,10 +27,15 @@ namespace Unicam.Progetto4.Web.Controllers
 
 
         [HttpPost]
-        [Route("list")]
+        [Route("Lista Prenotazioni")]
 
         public IActionResult GetPrenotazioni(GetPrenotazioneRequest request)
         {
+            if (request.PageSize <= 0)
+            {
+                return BadRequest("Il campo Page Size non può essere 0");
+            }
+
             int totalNum = 0;
             var prenotazioni = _prenotazioneService.GetPrenotazioni(request.PageNumber * request.PageSize, request.PageSize, request.Id, out totalNum);
             var response = new GetPrenotazioniResponse();
