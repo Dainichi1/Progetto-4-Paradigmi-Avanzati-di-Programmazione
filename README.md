@@ -21,6 +21,13 @@ Nella finestra che si apre, nel campo "Value" digitare prima "Bearer" e poi il T
 - creare una PRENOTAZIONE
   - visualizzare una lista prenotazioni digitando l'ID della risorsa. se si cancella il campo "id" verrà restituita la lista completa delle prenotazioni
 
+- Gli ID delle tipologie delle risorse sono:
+  - 1: Risotranti
+  - 2: Sala Riunioni
+  - 3: Hotel
+  - 4: Auto
+  - 5: Pub
+
 Progetto realizzato da:
 Marco Torquati (matricola 119127)
 
