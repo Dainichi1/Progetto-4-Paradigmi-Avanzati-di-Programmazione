@@ -1,5 +1,5 @@
 All'interno di questo repository è presente il backup del database SQLServer (Utenti.bacpac). 
-Per ripristinarlo seguire il tutorial presente in questo [link](https://www.c-sharpcorner.com/article/how-to-import-or-restore-bacpac-file-from-ssms/).
+Per ripristinarlo seguire le istruzioni illustrate in questo [link](https://www.c-sharpcorner.com/article/how-to-import-or-restore-bacpac-file-from-ssms/).
 
 Per avviare il progetto, e' sufficiente aprirlo con Visual Studio e selezionare come progetto di avvio "Unicam.Progetto4.Web". 
 Si aprira' automaticamente l'interfaccia di Swagger.
