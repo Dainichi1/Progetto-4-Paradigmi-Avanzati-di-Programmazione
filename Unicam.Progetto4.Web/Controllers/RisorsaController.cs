@@ -30,7 +30,7 @@ namespace Unicam.Progetto4.Web.Controllers
 
 
         [HttpGet]
-        [Route("get/{id:int}")] 
+        [Route("Ricerca Risorsa tramite ID/{id:int}")] 
         public IActionResult GetRisorsa(int id)
         {
             

@@ -18,21 +18,19 @@ namespace Unicam.Progetto4.Application.Services
         }
         public string CreateToken(CreateTokenRequest request)
         {
-            // STEP 1: verificare esatezza della coppia username/password
-
-            // STEP SUCCESSIVI
+            
             
             
             List<Claim> claims = new List<Claim>();
             claims.Add(new Claim("Nome", "Marco"));
             claims.Add(new Claim("Cognome", "Torquati"));
             
-            // chiave simmetrica
+           
             var securityKey = new SymmetricSecurityKey(
                 Encoding.UTF8.GetBytes(_jwtAuthOption.Key)
                 );
 
-            // creo credenziali di firma
+           
             var credentials = new SigningCredentials(securityKey
                 , SecurityAlgorithms.HmacSha256);
 
@@ -44,10 +42,10 @@ namespace Unicam.Progetto4.Application.Services
                 );
 
 
-            // prendo il token
+          
             var token = new JwtSecurityTokenHandler().WriteToken(securityToken);
 
-            // STEP 3: Restituisco il token 
+          
             return token;
 
         }

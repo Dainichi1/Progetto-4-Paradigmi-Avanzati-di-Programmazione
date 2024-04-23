@@ -17,7 +17,7 @@ namespace Unicam.Progetto4.Test.Orm
         public async Task RunExampleAsync()
         {
 
-            var ctx = new MyDbContext(); // inizializzo il contesto di entity-framework
+            var ctx = new MyDbContext(); 
 
 
 
@@ -39,43 +39,41 @@ namespace Unicam.Progetto4.Test.Orm
             {
                 DataInizio = new DateTime(2023, 1, 1) ,
                 DataFine = new DateTime(2023, 1, 3),
-                IdRisorsa = 1 // l'ID della risorsa deve esistere nel DB
+                IdRisorsa = 1 
             },
 
             new Prenotazione
             {
                 DataInizio = new DateTime(2023, 1, 4),
                 DataFine = new DateTime(2023, 1, 6),
-                IdRisorsa = 2 // l'ID della risorsa deve esistere nel DB
+                IdRisorsa = 2 
             },
 
             new Prenotazione
             {
                 DataInizio = new DateTime(2023, 1, 7),
                 DataFine = new DateTime(2023, 1, 8),
-                IdRisorsa = 3 // l'ID della risorsa deve esistere nel DB
+                IdRisorsa = 3 
             },
 
             new Prenotazione
             {
                 DataInizio = new DateTime(2023, 1, 7),
                 DataFine = new DateTime(2023, 1, 8),
-                IdRisorsa = 4 // l'ID della risorsa deve esistere nel DB
+                IdRisorsa = 4 
             },
 
     };
 
             foreach (var prenotazione in prenotazioni)
             {
-                // Prima verifica se l'ID della risorsa esiste nel DB
                 var risorsaEsiste = await ctx.Risorse.AnyAsync(r => r.IdRisorsa == prenotazione.IdRisorsa);
                 if (!risorsaEsiste)
                 {
                     Console.WriteLine($"La risorsa con ID {prenotazione.IdRisorsa} non esiste. Prenotazione non inserita.");
-                    continue; // Passa alla prossima iterazione senza aggiungere la prenotazione
+                    continue; 
                 }
 
-                // Verifica se esistono prenotazioni che si sovrappongono per la stessa risorsa
                 var prenotazioneConflittuale = await ctx.Prenotazioni.AnyAsync(p =>
                     p.IdRisorsa == prenotazione.IdRisorsa &&
                     (
@@ -184,11 +182,9 @@ namespace Unicam.Progetto4.Test.Orm
 
             foreach (var nuovoUtente in utenti)
             {
-                // Controlla se l'utente esiste già
                 var esisteUtente = ctx.Utenti
                     .Any(u => u.Email == nuovoUtente.Email);
 
-                // Se non esiste lo aggiunge
                 if (!esisteUtente)
                 {
                     ctx.Utenti.Add(nuovoUtente);
@@ -205,13 +201,11 @@ namespace Unicam.Progetto4.Test.Orm
                 .Where(u => u.IdUtente >= 34 && u.IdUtente <= 35)
                 .ToList();
 
-            // Rimuove gli utenti selezionati dal contesto
             foreach (var utente in utentiDaCancellare)
             {
                 ctx.Utenti.Remove(utente);
             }
 
-            // Salva le modifiche nel database
             await ctx.SaveChangesAsync();
         }
 
@@ -253,12 +247,10 @@ namespace Unicam.Progetto4.Test.Orm
 
             foreach (var tipologia in risorseTipologia)
             {
-                // Verifica se la tipologia esiste già nel database
                 var esistente = ctx.RisorseTipologia
-                    .AsNoTracking() // Aggiunto per evitare il tracciamento delle entità in questa query
+                    .AsNoTracking() 
                     .FirstOrDefault(rt => rt.IdRisorsaTipologia == tipologia.IdRisorsaTipologia);
 
-                // Se non esiste la aggiunge
                 if (esistente == null)
                 {
                     ctx.RisorseTipologia.Add(tipologia);
@@ -361,11 +353,9 @@ namespace Unicam.Progetto4.Test.Orm
 
             foreach (var nuovaRisorsa in risorse)
             {
-                // Controlla se la risorsa esiste già
                 var esisteRisorsa = ctx.Risorse
                     .Any(r => r.IdRisorsa == nuovaRisorsa.IdRisorsa);
 
-                // Se non esiste la aggiunge
                 if (!esisteRisorsa)
                 {
                     ctx.Risorse.Add(nuovaRisorsa);

@@ -6,7 +6,6 @@ using System.Threading.Tasks;
 
 namespace Unicam.Progetto4.Models.Entities
 {
-    // La classe "Prenotazione" devo mapparla sulla tabella "Prenotazioni" del db: vedi cartella "Configurations"
 
     public class Prenotazione
     {
@@ -15,8 +14,9 @@ namespace Unicam.Progetto4.Models.Entities
         public DateTime DataInizio { get; set; }
         public DateTime DataFine { get; set; }
 
-        // Proprietà di navigazione
-        // collego la prenotazione con la risorsa
         public Risorsa Risorsa { get; set; } = null!;
+
+
+       
     }
 }

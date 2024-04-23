@@ -60,7 +60,7 @@ namespace Unicam.Progetto4.Application.Services
 
             var risorse = query
                 .OrderBy(r => r.Nome)
-                .Skip(from * num) // Assicura che la paginazione sia corretta moltiplicando il numero di pagina per la dimensione della pagina.
+                .Skip(from * num) 
                 .Take(num)
                 .ToList();
 
@@ -69,10 +69,15 @@ namespace Unicam.Progetto4.Application.Services
                 Id = r.IdRisorsa,
                 Nome = r.Nome,
                 IdRisorsaTipologia = r.IdRisorsaTipologia
-                // Aggiungi altri campi se necessario
+               
             }).ToList();
 
             return risorseDto;
         }
+        public bool RisorsaExists(int idRisorsa)
+        {
+            return _dbContext.Risorse.Any(r => r.IdRisorsa == idRisorsa);
+        }
+
     }
 }

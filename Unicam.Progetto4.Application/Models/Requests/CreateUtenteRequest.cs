@@ -2,7 +2,7 @@
 
 namespace Unicam.Progetto4.Application.Models.Requests
 {
-    // mappa la richiesta della creazione di un utente
+    
     public class CreateUtenteRequest
     {
         
@@ -12,7 +12,7 @@ namespace Unicam.Progetto4.Application.Models.Requests
         public string Password { get; set; } = string.Empty;    
 
 
-        // mappo la "createUtenteRequest" ad "Utente"
+       
         public Utente ToEntity() 
         {
             var utente = new Utente();

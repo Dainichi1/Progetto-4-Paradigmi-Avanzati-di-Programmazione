@@ -21,14 +21,12 @@ namespace Unicam.Progetto4.Models.Context
 
         }
 
-        //gli sto deicendo che voglio gestire l'entita Risorsa
         public DbSet<Risorsa> Risorse { get; set; }
         public DbSet<RisorsaTipologia> RisorseTipologia { get; set; }
         public DbSet<Utente> Utenti { get; set; }
         public DbSet<Prenotazione> Prenotazioni { get; set; }
 
 
-        // con questo specifico che deve usare sql server
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             optionsBuilder.
@@ -36,10 +34,9 @@ namespace Unicam.Progetto4.Models.Context
         }
 
 
-        // con questo metodo applico le configurazioni scritte in Configurations che in questo esempio sono nello stesso progetto "Unica.Paradigmi.Models"
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.ApplyConfigurationsFromAssembly(this.GetType().Assembly); // Assembly = dll = progetto
+            modelBuilder.ApplyConfigurationsFromAssembly(this.GetType().Assembly); 
             base.OnModelCreating(modelBuilder);
         }
     }

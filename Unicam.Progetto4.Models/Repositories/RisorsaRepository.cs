@@ -35,8 +35,12 @@ namespace Unicam.Progetto4.Models.Repositories
                 .Take(num)
                 .ToList();
         }
-
-       
-
+        public bool RisorsaExists(int idRisorsa)
+        {
+            return _ctx.Risorse.Any(r => r.IdRisorsa == idRisorsa);
+        }
     }
+
+
 }
+

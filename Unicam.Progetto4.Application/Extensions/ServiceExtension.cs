@@ -16,7 +16,7 @@ namespace Unicam.Progetto4.Application.Extensions
                 SingleOrDefault(assembly => assembly.GetName().Name == "Unicam.Progetto4.Application")
             );
 
-            services.AddValidatorsFromAssemblyContaining<CreateRisorsaRequestValidator>(); //aggiunta
+            services.AddValidatorsFromAssemblyContaining<CreateRisorsaRequestValidator>(); 
 
             services.AddScoped<IUtenteService, UtenteService>();
             services.AddScoped<IRisorsaService, RisorsaService> ();

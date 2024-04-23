@@ -13,6 +13,7 @@ namespace Unicam.Progetto4.Application.Models.Dtos
             IdRisorsa = prenotazione.IdRisorsa;
             DataInizio = prenotazione.DataInizio;
             DataFine = prenotazione.DataFine;
+            
 
         }
 
@@ -21,5 +22,6 @@ namespace Unicam.Progetto4.Application.Models.Dtos
         public DateTime DataInizio { get; set; }
         public DateTime DataFine { get; set; }
 
+        
     }
 }

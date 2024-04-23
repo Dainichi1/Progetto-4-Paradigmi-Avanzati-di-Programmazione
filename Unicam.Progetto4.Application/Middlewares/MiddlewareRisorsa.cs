@@ -4,7 +4,7 @@ namespace Unicam.Progetto4.Application.Middlewares
 {
     public class MiddlewareRisorsa
     {
-        private RequestDelegate _next; // serve per passare al middleware successivo
+        private RequestDelegate _next; 
 
         public MiddlewareRisorsa(RequestDelegate next
             )
@@ -12,7 +12,7 @@ namespace Unicam.Progetto4.Application.Middlewares
             _next = next;
         }
 
-        // Implemento il codice effettivo del middleware
+   
         public async Task Invoke(HttpContext context
             , IRisorsaService risorsaService
             , IConfiguration configuration
@@ -23,7 +23,7 @@ namespace Unicam.Progetto4.Application.Middlewares
             context.RequestServices.GetRequiredService<IRisorsaService>();
             
 
-            // per andare al middleware successivo devo chiamare _next.Ivoke
+           
 
             await _next.Invoke(context);
         }

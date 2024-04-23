@@ -14,5 +14,9 @@ namespace Unicam.Progetto4.Application.Abstractions.Services
         Risorsa GetRisorsaById(int id);
 
         List<RisorsaDto> GetDisponibilita(int from, int num, DateTime dataInizio, DateTime dataFine, int? codiceRisorsa, out int totalItems);
+
+        bool RisorsaExists(int idRisorsa);
+
+
     }
 }

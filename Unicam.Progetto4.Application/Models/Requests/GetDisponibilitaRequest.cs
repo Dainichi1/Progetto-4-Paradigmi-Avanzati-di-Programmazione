@@ -5,7 +5,7 @@
         public DateTime DataInizio { get; set; }
         public DateTime DataFine { get; set; }
         public int? IdRisorsa { get; set; }
-        public int PageSize { get; set; } // Nessun valore predefinito
-        public int PageNumber { get; set; } // Nessun valore predefinito
+        public int PageSize { get; set; } 
+        public int PageNumber { get; set; } 
     }
 }

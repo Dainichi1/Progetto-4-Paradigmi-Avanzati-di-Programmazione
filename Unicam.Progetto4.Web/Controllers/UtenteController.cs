@@ -22,7 +22,7 @@ namespace Unicam.Progetto4.Web.Controllers
         }
 
         [HttpGet]
-        [Route("get/{id:int}")]
+        [Route("Ricerca Utente tramite ID/{id:int}")]
         public IActionResult GetUtenteById(int id)
         {
             var utente = _utenteService.GetUtenteById(id);
@@ -38,7 +38,7 @@ namespace Unicam.Progetto4.Web.Controllers
 
 
         [HttpPost] 
-        [Route("list")]
+        [Route("Lista Utenti")]
 
         public IActionResult GetUtenti(GetUtenteRequest request)
         {
